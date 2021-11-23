@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface JpaRegistrationRepository extends JpaRepository<JpaRegistration, Long> {
+
+    @EntityGraph(value = "registration.graph")
     List<JpaRegistration> findByStudentId(String id);
 
     @EntityGraph(value = "registration.graph")
